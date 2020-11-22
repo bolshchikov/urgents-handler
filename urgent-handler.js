@@ -1,12 +1,18 @@
-import { analyzeImpact } from './monitoring';
+import { analyzeImpact, readLogs } from './monitoring';
 import { canPerformBasicAction } from './bi';
+import { notifyUrgentChannel } from './notifications';
+import { canRollbackHelp, rollback } from './releases';
+import { fix } from './codebase';
 
 function defineProblem(compain, monitoring) {
   const issue = {
     // some black magic here
   };
-  const resolved = () => {
-    // how to test whether issue is resolved
+  const mitigated = () => {
+    // shows whether the current problem is resolved
+  };
+  const solved = () => {
+    // shows whether the underlying reason is solved
   };
   return {
     issue,
@@ -25,16 +31,21 @@ function isReallyUrgent(issue) {
   return false;
 }
 
-function solveUrgent(issue) {
+function mitigateUrgent(issue) {
+  if (canRollbackHelp(issue)) {
+    return rollback();
+  }
 }
 
 function main(compain, monitoring) {
   console.warn('Take a deep breath');
   
   const {issue, resolved} = defineProblem(compain, monitoring);
+  
   if (isReallyUrgent(potentialIssue)) {
-    while(!resolved(issue)) {
-      solveUrgent(issue);
+    notifyUrgentChannel();
+    while(!mitigated(issue)) {
+      mitigateUrgent(issue);
     }
   }
 
