@@ -1,8 +1,17 @@
-import { analyzeImpact } from 'monitoring';
-import { canPerformBasicAction } from 'bi';
+import { analyzeImpact } from './monitoring';
+import { canPerformBasicAction } from './bi';
 
 function defineProblem(compain, monitoring) {
-  // some black magic going on here
+  const issue = {
+    // some black magic here
+  };
+  const resolved = () => {
+    // how to test whether issue is resolved
+  };
+  return {
+    issue,
+    resolved
+  }
 }
 
 function isReallyUrgent(issue) {
@@ -16,9 +25,29 @@ function isReallyUrgent(issue) {
   return false;
 }
 
-function urgentHandler(compain, monitoring) {
-  const potentialIssue = defineProblem(compain, monitoring);
-  if (isReallyUrgent(potentialIssue)) {}
+function solveUrgent(issue) {
 }
 
-export default urgentHandler;
+function main(compain, monitoring) {
+  console.warn('Take a deep breath');
+  
+  const {issue, resolved} = defineProblem(compain, monitoring);
+  if (isReallyUrgent(potentialIssue)) {
+    while(!resolved(issue)) {
+      solveUrgent(issue);
+    }
+  }
+
+  const severity = estimateSeverity(issue);
+  
+  switch(severity) {
+    case 'high':
+      break;
+    case 'medium':
+      break;
+    case 'low':
+      break;
+  }
+}
+
+export default main;
