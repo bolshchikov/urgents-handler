@@ -1,12 +1,12 @@
-import { analyzeImpact } from './monitoring';
-import { canPerformBasicAction } from './bi';
-import { notifyUrgentChannel } from './notifications';
-import { canRollbackHelp, rollback } from './releases';
-import { hotfix, fix } from './codebase';
 import { addTicket } from './backlog';
-import { MITIGATION_STRATEGIES, applyMitigationStrategy } from './mitigations';
+import { canPerformBasicAction } from './bi';
+import { fix } from './codebase';
+import { applyMitigationStrategy, MITIGATION_STRATEGIES } from './mitigations';
+import { analyzeImpact } from './monitoring';
+import { notifyUrgentChannel } from './notifications';
+import { canRollbackHelp } from './releases';
 
-function defineProblem(compain, monitoring) {
+function defineProblem(complain, monitoring) {
   const issue = {
     // some black magic here
   };
@@ -48,29 +48,35 @@ function mitigateUrgent(issue) {
   return mitigated;
 }
 
-function main(compain, monitoring) {
+function main(complain, monitoring) {
   console.warn('Take a deep breath');
-  
-  const {issue, isMitigated, isSolved} = defineProblem(compain, monitoring);
-  
-  if (isReallyUrgent(potentialIssue)) {
-    notifyUrgentChannel();
 
-    let mitigationAttempt = 0;
-    let MAX_MITIGATION_ATTEMPTS = MITIGATION_STRATEGIES.length;
-    
-    while(!isMitigated(issue) || mitigationAttempt <= MAX_MITIGATION_ATTEMPTS) {
-      mitigateUrgent(issue);
-      mitigationAttempt += 1;
+  const { issue, isMitigated, isSolved } = defineProblem(complain, monitoring);
+
+  if (!isReallyUrgent(potentialIssue)) {
+    return;
+  }
+
+  notifyUrgentChannel(); // don't try to solve urgent alone. Take at least 1 more person with you.
+
+  let mitigationAttempt = 0;
+  let MAX_MITIGATION_ATTEMPTS = MITIGATION_STRATEGIES.length;
+
+  // the main difference between mitigation and solution
+  // mitigation solves one specific use case
+  // in case of urgent, it's more important
+  // mitigate first, then solve
+  while (!isMitigated(issue) || mitigationAttempt <= MAX_MITIGATION_ATTEMPTS) {
+    mitigateUrgent(issue);
+    mitigationAttempt += 1;
+  }
+
+  if (!isSolved(issue)) {
+    try {
+      fix() // 4. if all previous options failed
     }
-    
-    if (!isSolved(issue)) {
-      try {
-        fix() // 4. if all previous options failed
-      }
-      catch (ooops) {
-        addTicket(issue);
-      }
+    catch (ooops) {
+      addTicket(issue);
     }
   }
 }
