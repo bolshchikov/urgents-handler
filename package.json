@@ -1,0 +1,15 @@
+{
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "start": "mdx-deck slides/deck.mdx",
+    "build": "mdx-deck build slides/deck.mdx",
+    "deploy": "gh-pages -d public"
+  },
+  "devDependencies": {
+    "code-surfer": "3.1.0",
+    "gh-pages": "^3.1.0",
+    "mdx-deck": "3.0.13"
+  },
+  "name": "urgent-handler-slides"
+}
