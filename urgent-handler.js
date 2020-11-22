@@ -53,7 +53,7 @@ function main(complain, monitoring) {
 
   const { issue, isMitigated, isSolved } = defineProblem(complain, monitoring);
 
-  if (!isReallyUrgent(potentialIssue)) {
+  if (!isReallyUrgent(issue)) {
     return;
   }
 
@@ -72,13 +72,13 @@ function main(complain, monitoring) {
   }
 
   if (!isSolved(issue)) {
-    try {
-      fix() // 4. if all previous options failed
-    }
-    catch (ooops) {
-      addTicket(issue);
-    }
+    fix() // 4. if all previous options failed
   }
+
+  deploy();
+  confirmResolution();
+  notifyUrgentChannel();
+
 }
 
 export default main;

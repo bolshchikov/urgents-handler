@@ -1,0 +1,246 @@
+import {
+  CodeSurfer,
+  CodeSurferColumns,
+  Step,
+} from "code-surfer";
+import { github, vsDark } from "@code-surfer/themes";
+
+export const theme = github;
+
+# Oh shit, ~~Yehuda~~ <br/> `<%= username%>` <br /> has a problem!
+
+The art of handling urgent issues in production
+
+---
+
+> Handling urgents is not black magic. <br /> It's a set of practices to mitigate the issues.
+
+---
+
+> Those practices can be formed into algorithm. <br /> Pseudo code is a great way to express the algorithm. <br /> (No monkeys this time 😆)
+
+---
+
+<CodeSurfer>
+
+```js showNumbers title="Urgent handling algorithm" subtitle="Looks little scary, I know, let's dive in" file=../urgent-handler.js
+
+```
+
+```diff 51:82 subtitle="The main function"
+
+```
+
+</CodeSurfer>
+
+---
+
+<CodeSurfer>
+
+```js 51:82 showNumbers subtitle="The main function" file=../urgent-handler.js
+
+```
+
+```diff 51[14:35] subtitle="Urgent comes from 2 places"
+
+```
+
+```diff 52 subtitle="And when it comes, do not panic"
+
+```
+
+```diff 54 subtitle="Distill user complain into real an issue"
+
+```
+
+```diff 9:24 subtitle="Distill user complain into real an issue"
+
+```
+
+</CodeSurfer>
+
+---
+
+<CodeSurfer>
+
+```js 9:24 showNumbers subtitle="Distill user complain into real an issue" file=../urgent-handler.js
+
+```
+
+```diff 10:12 subtitle="Formulate the issue"
+
+```
+
+```diff 13:15 subtitle="Know to validate that the complain is solved"
+
+```
+
+```diff 16:18 subtitle="Know to validate that the issue is solved"
+
+```
+
+```diff 54 subtitle="Distill user complain into real an issue"
+
+```
+
+```diff 56:58 subtitle="The most important thing"
+
+```
+
+</CodeSurfer>
+
+---
+
+<CodeSurfer>
+
+```js 56:58 showNumbers subtitle="The most important thing" file=../urgent-handler.js
+
+```
+
+```diff 26:35 subtitle="Failing here many time is the straight way for colleagues to hate you"
+
+```
+
+```diff 27 subtitle="Use monitoring to estimate the damage"
+
+```
+
+```diff 28[7:33] subtitle="To certain % of all users"
+
+```
+
+```diff 28[38:72] subtitle="To large percent of % within the same company"
+
+```
+
+```diff 29 subtitle="Definitely urgent"
+
+```
+
+```diff 31 subtitle="Impact is small but prevent the basic usage?"
+
+```
+
+```diff 32 subtitle="Also urgent"
+
+```
+
+```diff 34 subtitle="Anything else? Can go back to sleep"
+
+```
+
+</CodeSurfer>
+
+---
+
+<CodeSurfer>
+
+```js 56:58 showNumbers subtitle="We were here" file=../urgent-handler.js
+
+```
+
+```diff 60 subtitle="Don't forget. Better don't solve urgent alone"
+
+```
+
+```diff 62:72 subtitle="Let's start mitigation"
+
+```
+
+</CodeSurfer>
+
+---
+
+<CodeSurfer>
+
+```js 62:72 showNumbers subtitle="Let's start mitigation" file=../urgent-handler.js
+
+```
+
+```diff 65:68 subtitle="Mitigation vs. Resolution"
+
+```
+
+```diff 69:72 subtitle="Try to mitigate"
+
+```
+
+```diff 37:49 subtitle="Try to mitigate"
+
+```
+
+</CodeSurfer>
+
+---
+
+<CodeSurfer>
+
+```js 37:49 showNumbers subtitle="3 main strategies of mitigation" file=../urgent-handler.js
+
+```
+
+```diff 39:41 subtitle="The easiest and fastest way to mitigate - rollback"
+
+```
+
+```diff 42:44 subtitle="Sometimes it's enough to fix the data in the DB"
+
+```
+
+```diff 45:47 subtitle="If nothing helps - write an quick (ugly) fix"
+
+```
+
+```diff 48 subtitle="Managed to mitigate?"
+
+```
+
+```diff 69:72 subtitle="In most cases we manage to mitigate"
+
+```
+
+```diff 74:76 subtitle="Sometimes we have to fix the underlying issue"
+
+```
+
+</CodeSurfer>
+
+---
+
+<CodeSurfer>
+
+```js 74:76 showNumbers subtitle="The worst case that can happen but sometimes no other way" file=../urgent-handler.js
+
+```
+
+```diff 78 subtitle="Deploy the fix"
+
+```
+
+```diff 79 subtitle="Confirm w/ QA that the issue is fixed, deploy with customer too"
+
+```
+
+```diff 80 subtitle="Update others"
+
+```
+
+</CodeSurfer>
+
+---
+
+<CodeSurfer>
+
+```js showNumbers title="Urgent handling algorithm" subtitle="Still scared?" file=../urgent-handler.js
+
+```
+
+</CodeSurfer>
+
+---
+
+Questions?
+
+---
+
+Thanks!
